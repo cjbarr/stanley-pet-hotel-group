@@ -7,12 +7,18 @@ import React, {
 class Dashboard extends Component {
     state = {
         newPet: {
-            owner: '',
-            pet: '',
-            breed: '',
-            color: '',
-            checkIn: '',
-        }
+            owner: 'Joel',
+            pet: 'Skittles',
+            breed: 'Cat',
+            color: 'Orange',
+            checkIn: '01/01/2020',
+        },
+        pet2: {
+            owner: 'Corey',
+            pet: 'Pod',
+            breed: 'Dog',
+            color: 'Tan',
+            checkIn: '01/01/2020',}
     }
 
     handleNameChange = (event, type) => {
@@ -39,10 +45,10 @@ class Dashboard extends Component {
 
     addNewPet = event => {
         event.preventDefault();
-        this.props.dispatch({
-            type: 'POST_PET',
-            payload: this.state.newPet
-        })
+        // this.props.dispatch({
+        //     type: 'POST_PET',
+        //     payload: this.state.newPet
+        // })
         this.setState({
             newPet: {
                 owner: '',
@@ -67,11 +73,28 @@ class Dashboard extends Component {
                     <input type='text' placeholder="Checked In" value={this.state.newPet.checkIn} onChange={(event) => this.handleNameChange(event, 'checkIn')} />
                     <input type='submit' value='Add New Pet' />
                 </form>
+
+                <table>
+                <thead><tr><th>Owner</th><th>Pet</th><th>Breed</th><th>Color</th><th>Checked In</th></tr></thead>
+                <tbody>
+                    
+                    {/* {this.state.map(pet => (<tr><td>{pet.owner}</td><td>{pet.pet}</td><td>{pet.breed}</td><td>{pet.color}</td><td>{pet.checkIn}</td></tr>))}  */}
+                </tbody >
+                </table>
             </div>
         );
     }
 }
 
+{/* <thead>
+                    <tr>
+                        <th>Airlines</th>
+                        <th>Number of Planes</th>
+                    </tr>
+                </thead> */}
+//   <tbody>
+//         { this.props.reduxState.firstReducer.map(carrier => (<tr><td>{carrier.airline}</td><td>{carrier.numPlanes}</td></tr>)) }
+//         </tbody >
 
 // <button onClick={(event) => this.deletePet > Delete</ button>
 //     <button onClick={(event) => this.handleNameChange(event, 'subfamily')}>Check In</button>
